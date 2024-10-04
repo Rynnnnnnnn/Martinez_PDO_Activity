@@ -1,12 +1,20 @@
 <?php
 
 $host = 'localhost';
+$db = 'CoffeeShop';
 $user = 'root';
-$password = '';
-$dbname = 'test';
-$dsn = "mysql:host={$host};dbname={$dbname}';"
+$pass = '';
 
-$pdo = new PDO($dsn, $user, $password);
-$pdo->exec("SET time_zone = '+08:00';");
+// Set the DSN (Data Source Name)
+$dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
 
+try {
+    $pdo = new PDO($dsn, $user, $pass);
+    
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+} catch (PDOException $e) {
+    
+    die("Connection failed: " . $e->getMessage());
+}
 ?>
