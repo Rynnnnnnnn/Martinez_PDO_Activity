@@ -1,5 +1,4 @@
 <?php
-// Include database configuration
 require_once 'core/dbConfig.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
